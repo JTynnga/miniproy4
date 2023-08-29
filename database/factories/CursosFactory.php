@@ -20,9 +20,9 @@ class CursosFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->colorName(),
+            'nombre' => fake()->colorName(),
             'docente_id' => Docentes::all()->random(),
-            'state' => 1,
+            'estado' => 1,
         ];
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+nombrespace App\Http\Controllers;
 
 use App\Models\Alumnos;
 use Brick\Math\BigInteger;
@@ -11,7 +11,7 @@ class AlumnosController extends Controller
 {
     public function index()
     {
-        return Alumnos::where('state', '=', 1)->get();
+        return Alumnos::where('estado', '=', 1)->get();
     }
 
     public function getById(int $id)
@@ -19,7 +19,7 @@ class AlumnosController extends Controller
         if (Alumnos::find($id) == null) {
             return "No existe un alumno con el id N° " . $id;
         }
-        if (Alumnos::find($id)->state == 0) {
+        if (Alumnos::find($id)->estado == 0) {
             return "El alumno N° " . $id . " esta desactivado.";
         }
         return Alumnos::find($id);
@@ -27,15 +27,15 @@ class AlumnosController extends Controller
 
     public function create(Request $body)
     {
-        if ($body->name) {
+        if ($body->nombre) {
             $nuevoAlumno = new Alumnos(); //Instanciado la clase
-            $nuevoAlumno->name = $body->name;
+            $nuevoAlumno->nombre = $body->nombre;
             // $nuevoAlumno->create($body->all());
-            $nuevoAlumno->state = 1;
+            $nuevoAlumno->estado = 1;
             $nuevoAlumno->save();
             return "Alumno Registrado Correctamente.";
         }
-        return "Es nesesario ingresar un valor en el objeto de nombre: 'name' para ser registrar un alumno.";
+        return "Es nesesario ingresar un valor en el objeto de nombre: 'nombre' para ser registrar un alumno.";
     }
     public function update(Request $request, $id)
     {
@@ -43,14 +43,14 @@ class AlumnosController extends Controller
             if (Alumnos::find($id) != null) {
                 $actualizarAlumno = Alumnos::find($id);
                 if ($request->all()) {
-                    if ($request->name) {
-                        $actualizarAlumno->name = $request->name;
+                    if ($request->nombre) {
+                        $actualizarAlumno->nombre = $request->nombre;
                     }
-                    if ($request->state) {
-                        if ($request->state == 1 || $request->state == 0) {
-                            $actualizarAlumno->state = $request->state;
+                    if ($request->estado) {
+                        if ($request->estado == 1 || $request->estado == 0) {
+                            $actualizarAlumno->estado = $request->estado;
                         } else {
-                            return "'state' solo acepta los valores 0 o 1.\n 'state' sin modificaciones.\n";
+                            return "'estado' solo acepta los valores 0 o 1.\n 'estado' sin modificaciones.\n";
                         }
                     }
 
@@ -62,7 +62,7 @@ class AlumnosController extends Controller
                 return "No existe un registro con ese id.";
             }
         } catch (Exception $e) {
-            return "Es nesesario ingresar un valor en el objeto de nombre: 'name' para ser actualizado, en formato JSON";
+            return "Es nesesario ingresar un valor en el objeto de nombre: 'nombre' para ser actualizado, en formato JSON";
         }
     }
     public function delete($id)
@@ -72,7 +72,7 @@ class AlumnosController extends Controller
         if ($borrarAlumno == null) {
             return "No existe el alumno N° " . $num . ".";
         }
-        $borrarAlumno->state = 0;
+        $borrarAlumno->estado = 0;
         $borrarAlumno->save();
         return "El alumno N° " . $num . " ha sido eliminado.";
     }

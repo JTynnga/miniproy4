@@ -22,7 +22,7 @@ class CursosAlumnosFactory extends Factory
             'alumnos_id' => Alumnos::all()->random(),
             'cursos_id' => Cursos::all()->random(),
             'asistencia' => NULL,
-            'state' => 1,
+            'estado' => 1,
         ];
     }
 }

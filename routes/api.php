@@ -25,7 +25,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-// ->middleware(Prueba01::class);->middleware(VerifyCreate::class);
 
 Route::get('/alumnos', [AlumnosController::class, 'index']);
 Route::get('/alumnos/{id}', [AlumnosController::class, 'getById']);
@@ -68,7 +67,6 @@ Route::match(['options', 'patch'], '/matriculas', [CursosAlumnosController::clas
 Route::match(['post', 'patch', 'options'], '/matriculas/{id}', [CursosAlumnosController::class, 'wrongMethodId']);
 
 Route::get('/asistencias', [CursosAlumnosController::class, 'noIdExp']);
-// Route::get('/asistencias/{id}', [CursosAlumnosController::class, 'asistencia']);
 Route::match(['put', 'post'], '/asistencias/{id}', [CursosAlumnosController::class, 'asistencia']);
 Route::delete('/asistencias/{id}', [CursosAlumnosController::class, 'asistenciaDelete']);
 

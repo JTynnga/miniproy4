@@ -12,7 +12,7 @@ class CursosAlumnosController extends Controller
 {
     public function index()
     {
-        $CursosAlumnosActive = CursosAlumnos::where('state', '=', 1)->get();
+        $CursosAlumnosActive = CursosAlumnos::where('estado', '=', 1)->get();
         if (count($CursosAlumnosActive) == 0) {
             return "No hay matriculas activas.";
         }
@@ -25,7 +25,7 @@ class CursosAlumnosController extends Controller
         if (CursosAlumnos::find($id) == null) {
             return "No existe la matricula con el id N° " . $id;
         }
-        if (CursosAlumnos::find($id)->state == 0) {
+        if (CursosAlumnos::find($id)->estado == 0) {
             return "La matricula N° " . $id . " esta desactivado.";
         }
         return CursosAlumnos::find($id);
@@ -39,8 +39,8 @@ class CursosAlumnosController extends Controller
             $nuevoMatricula->alumnos_id = $body->alumnos_id;
             // echo ($body->cursos_id);
 
-            $CursosAll = Cursos::where('state', '=', 1)->where('id', '=', $body->cursos_id)->get();
-            $AlumnosAll = Alumnos::where('state', '=', 1)->where('id', '=', $body->alumnos_id)->get();
+            $CursosAll = Cursos::where('estado', '=', 1)->where('id', '=', $body->cursos_id)->get();
+            $AlumnosAll = Alumnos::where('estado', '=', 1)->where('id', '=', $body->alumnos_id)->get();
             // echo ($CursosAll);
 
             if (count($CursosAll) == 0) {
@@ -55,7 +55,7 @@ class CursosAlumnosController extends Controller
             }
 
             $nuevoMatricula->asistencia = NULL;
-            $nuevoMatricula->state = 1;
+            $nuevoMatricula->estado = 1;
             $nuevoMatricula->save();
             return "Alumno N° " . $body->alumnos_id . " matriculado Correctamente en curso " . $body->cursos_id . ".";
         }
@@ -68,7 +68,7 @@ class CursosAlumnosController extends Controller
                 $actualizarMatricula = CursosAlumnos::find($id);
                 if ($request->all()) {
                     if ($request->alumnos_id) {
-                        $AlumnosAll = Alumnos::where('state', '=', 1)->where('id', '=', $request->alumnos_id)->get();
+                        $AlumnosAll = Alumnos::where('estado', '=', 1)->where('id', '=', $request->alumnos_id)->get();
 
                         if (count($AlumnosAll) == 0) {
                             return "No existe un alumno con ese 'alumnos_id' o esta desactivado, porfavor ingrese un 'alumnos_id' valido.";
@@ -77,7 +77,7 @@ class CursosAlumnosController extends Controller
                         }
                     }
                     if ($request->cursos_id) {
-                        $CursosAll = Cursos::where('state', '=', 1)->where('id', '=', $request->cursos_id)->get();
+                        $CursosAll = Cursos::where('estado', '=', 1)->where('id', '=', $request->cursos_id)->get();
 
                         if (count($CursosAll) == 0) {
                             return "No existe un curso con ese 'cursos_id' o esta desactivado, porfavor ingrese un 'cursos_id' valido.";
@@ -85,11 +85,11 @@ class CursosAlumnosController extends Controller
                             $actualizarMatricula->cursos_id = $request->cursos_id;
                         }
                     }
-                    if ($request->state) {
-                        if ($request->state == 1 || $request->state == 0) {
-                            $actualizarMatricula->state = $request->state;
+                    if ($request->estado) {
+                        if ($request->estado == 1 || $request->estado == 0) {
+                            $actualizarMatricula->estado = $request->estado;
                         } else {
-                            return "'state' solo acepta los valores 0 o 1.\n 'state' sin modificaciones.\n";
+                            return "'estado' solo acepta los valores 0 o 1.\n 'estado' sin modificaciones.\n";
                         }
                     }
                     if ($request->asistencia) {
@@ -114,13 +114,13 @@ class CursosAlumnosController extends Controller
     {
         $num = $id;
         $borrarMatricula = CursosAlumnos::find($id);
-        if ($borrarMatricula->state == 0) {
+        if ($borrarMatricula->estado == 0) {
             return "La matricula N° " . $num . " esta desactivada.";
         }
         if ($borrarMatricula == null) {
             return "No existe la matricula N° " . $num . ".";
         }
-        $borrarMatricula->state = 0;
+        $borrarMatricula->estado = 0;
         $borrarMatricula->save();
         return "La Matricula N° " . $num . " ha sido eliminado.";
     }

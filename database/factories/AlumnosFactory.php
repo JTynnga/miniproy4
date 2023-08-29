@@ -17,8 +17,8 @@ class AlumnosFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'state' => 1,
+            'nombre' => fake()->name(),
+            'estado' => 1,
         ];
     }
 }

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('alumnos_id');
             $table->foreign('alumnos_id')->references('id')->on('alumnos');
             $table->char('asistencia', 1)->nullable();
-            $table->char('state', 1);
+            $table->char('estado', 1);
             $table->timestamps();
         });
     }

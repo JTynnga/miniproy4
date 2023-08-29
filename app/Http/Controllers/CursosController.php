@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+nombrespace App\Http\Controllers;
 
 use App\Models\Cursos;
 use App\Models\Docentes;
@@ -12,7 +12,7 @@ class CursosController extends Controller
 {
     public function index()
     {
-        return Cursos::where('state', '=', 1)->get();
+        return Cursos::where('estado', '=', 1)->get();
     }
 
     public function getById(int $id)
@@ -20,7 +20,7 @@ class CursosController extends Controller
         if (Cursos::find($id) == null) {
             return "No existe un curso con el id N° " . $id;
         }
-        if (Cursos::find($id)->state == 0) {
+        if (Cursos::find($id)->estado == 0) {
             return "El curso N° " . $id . " esta desactivado.";
         }
         return Cursos::find($id);
@@ -28,12 +28,12 @@ class CursosController extends Controller
 
     public function create(Request $body)
     {
-        if ($body->name && $body->docente_id) {
+        if ($body->nombre && $body->docente_id) {
             $nuevoCurso = new Cursos(); //Instanciado la clase
-            $nuevoCurso->name = $body->name;
+            $nuevoCurso->nombre = $body->nombre;
             // echo ($body->docente_id);
 
-            $DocentesAll = Docentes::where('state', '=', 1)->where('id', '=', $body->docente_id)->get();
+            $DocentesAll = Docentes::where('estado', '=', 1)->where('id', '=', $body->docente_id)->get();
             if (count($DocentesAll) == 0) {
                 return "No existe un docente con ese 'docente_id', porfavor ingrese un 'docente_id' valido.";
             } else {
@@ -41,11 +41,11 @@ class CursosController extends Controller
             }
 
 
-            $nuevoCurso->state = 1;
+            $nuevoCurso->estado = 1;
             $nuevoCurso->save();
             return "Curso Registrado Correctamente.";
         }
-        return "Es nesesario ingresar un valor en el objeto de nombre: 'name' y 'docente_id' para ser registrar un alumno.";
+        return "Es nesesario ingresar un valor en el objeto de nombre: 'nombre' y 'docente_id' para ser registrar un alumno.";
     }
     public function update(Request $request, $id)
     {
@@ -53,11 +53,11 @@ class CursosController extends Controller
             if (Cursos::find($id) != null) {
                 $actualizarCurso = Cursos::find($id);
                 if ($request->all()) {
-                    if ($request->name) {
-                        $actualizarCurso->name = $request->name;
+                    if ($request->nombre) {
+                        $actualizarCurso->nombre = $request->nombre;
                     }
                     if ($request->docente_id) {
-                        $DocentesAll = Docentes::where('state', '=', 1)->where('id', '=', $request->docente_id)->get();
+                        $DocentesAll = Docentes::where('estado', '=', 1)->where('id', '=', $request->docente_id)->get();
 
                         if (count($DocentesAll) == 0) {
                             return "No existe un docente con ese 'docente_id' o esta desactivado, porfavor ingrese un 'docente_id' valido.";
@@ -65,11 +65,11 @@ class CursosController extends Controller
                             $actualizarCurso->docente_id = $request->docente_id;
                         }
                     }
-                    if ($request->state) {
-                        if ($request->state == 1 || $request->state == 0) {
-                            $actualizarCurso->state = $request->state;
+                    if ($request->estado) {
+                        if ($request->estado == 1 || $request->estado == 0) {
+                            $actualizarCurso->estado = $request->estado;
                         } else {
-                            return "'state' solo acepta los valores 0 o 1.\n 'state' sin modificaciones.\n";
+                            return "'estado' solo acepta los valores 0 o 1.\n 'estado' sin modificaciones.\n";
                         }
                     }
                     $actualizarCurso->save();
@@ -80,7 +80,7 @@ class CursosController extends Controller
                 return "No existe un registro con ese id.";
             }
         } catch (Exception $e) {
-            return "Es nesesario ingresar un valor en el objeto de nombre: 'name' para ser actualizado, en formato JSON";
+            return "Es nesesario ingresar un valor en el objeto de nombre: 'nombre' para ser actualizado, en formato JSON";
         }
     }
     public function delete($id)
@@ -90,7 +90,7 @@ class CursosController extends Controller
         if ($borrarCurso == null) {
             return "No existe el curso N° " . $num . ".";
         }
-        $borrarCurso->state = 0;
+        $borrarCurso->estado = 0;
         $borrarCurso->save();
         return "El curso N° " . $num . " ha sido eliminado.";
     }
