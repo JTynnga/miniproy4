@@ -1,6 +1,6 @@
 <?php
 
-nombrespace App\Http\Controllers;
+namespace App\Http\Controllers;
 
 use App\Models\Alumnos;
 use Brick\Math\BigInteger;

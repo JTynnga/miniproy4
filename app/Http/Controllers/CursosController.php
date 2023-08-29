@@ -1,6 +1,6 @@
 <?php
 
-nombrespace App\Http\Controllers;
+namespace App\Http\Controllers;
 
 use App\Models\Cursos;
 use App\Models\Docentes;

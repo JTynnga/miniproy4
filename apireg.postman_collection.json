@@ -26,7 +26,7 @@
 						"alumnos"
 					]
 				},
-				"description": "Muestra todos los alumnos existentes que tengan el 'state' en 1 osea que esten activados."
+				"description": "Muestra todos los alumnos existentes que tengan el 'estado' en 1 osea que esten activados."
 			},
 			"response": []
 		},
@@ -51,7 +51,7 @@
 						"1"
 					]
 				},
-				"description": "Muestra el alumno con el id ingresado y que tenga el 'state' en 1 osea que este activado."
+				"description": "Muestra el alumno con el id ingresado y que tenga el 'estado' en 1 osea que este activado."
 			},
 			"response": []
 		},
@@ -62,7 +62,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Alumno04\"\r\n}",
+					"raw": "{\r\n    \"nombre\":\"Alumno04\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -84,7 +84,7 @@
 						"alumnos"
 					]
 				},
-				"description": "Permite ingresar un nuevo alumno con un valor en el campo \"name\""
+				"description": "Permite ingresar un nuevo alumno con un valor en el campo \"nombre\""
 			},
 			"response": []
 		},
@@ -95,7 +95,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Herbert_O\"\r\n}",
+					"raw": "{\r\n    \"nombre\":\"Herbert_O\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -118,7 +118,7 @@
 						"1"
 					]
 				},
-				"description": "Permite actualizar los campos \"name\" y \"state\" de alumnos"
+				"description": "Permite actualizar los campos \"nombre\" y \"estado\" de alumnos"
 			},
 			"response": []
 		},
@@ -143,7 +143,7 @@
 						"1"
 					]
 				},
-				"description": "Permite desactivar un alumno por medio de su Id , cambiando su \"state\" a 0"
+				"description": "Permite desactivar un alumno por medio de su Id , cambiando su \"estado\" a 0"
 			},
 			"response": []
 		},
@@ -167,7 +167,7 @@
 						"docentes"
 					]
 				},
-				"description": "Muestra todos los docentes existentes que tengan el 'state' en 1 osea que esten activados."
+				"description": "Muestra todos los docentes existentes que tengan el 'estado' en 1 osea que esten activados."
 			},
 			"response": []
 		},
@@ -192,7 +192,7 @@
 						"1"
 					]
 				},
-				"description": "Muestra el docente con el id ingresado y que tenga el 'state' en 1 osea que este activado."
+				"description": "Muestra el docente con el id ingresado y que tenga el 'estado' en 1 osea que este activado."
 			},
 			"response": []
 		},
@@ -203,7 +203,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"docente04\"\r\n}",
+					"raw": "{\r\n    \"nombre\":\"docente04\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -225,7 +225,7 @@
 						"docentes"
 					]
 				},
-				"description": "Permite ingresar un nuevo docente con un valor en el campo \"name\""
+				"description": "Permite ingresar un nuevo docente con un valor en el campo \"nombre\""
 			},
 			"response": []
 		},
@@ -236,7 +236,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Prof. Martinez\"\r\n}",
+					"raw": "{\r\n    \"nombre\":\"Harol.Carazas\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -259,7 +259,7 @@
 						"1"
 					]
 				},
-				"description": "Permite actualizar los campos \"name\" y \"state\" de docentes"
+				"description": "Permite actualizar los campos \"nombre\" y \"estado\" de docentes"
 			},
 			"response": []
 		},
@@ -293,7 +293,7 @@
 						"1"
 					]
 				},
-				"description": "Permite desactivar un docente por medio de su Id , cambiando su \"state\" a 0"
+				"description": "Permite desactivar un docente por medio de su Id , cambiando su \"estado\" a 0"
 			},
 			"response": []
 		},
@@ -317,7 +317,7 @@
 						"cursos"
 					]
 				},
-				"description": "Muestra todos los cursos existentes que tengan el 'state' en 1 osea que esten activados."
+				"description": "Muestra todos los cursos existentes que tengan el 'estado' en 1 osea que esten activados."
 			},
 			"response": []
 		},
@@ -342,7 +342,7 @@
 						"1"
 					]
 				},
-				"description": "Muestra el curso con el id ingresado y que tenga el 'state' en 1 osea que este activado."
+				"description": "Muestra el curso con el id ingresado y que tenga el 'estado' en 1 osea que este activado."
 			},
 			"response": []
 		},
@@ -353,7 +353,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Biologia\",\r\n    \"docente_id\":\"2\"\r\n}",
+					"raw": "{\r\n    \"nombre\":\"Biologia\",\r\n    \"docente_id\":\"2\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -375,7 +375,7 @@
 						"cursos"
 					]
 				},
-				"description": "Permite ingresar un nuevo curso con los valores en los campos \"name\" y \"docente_id\""
+				"description": "Permite ingresar un nuevo curso con los valores en los campos \"nombre\" y \"docente_id\""
 			},
 			"response": []
 		},
@@ -386,7 +386,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Geometria\",\r\n    \"docente_id\":\"2\"\r\n}",
+					"raw": "{\r\n    \"nombre\":\"Geometria\",\r\n    \"docente_id\":\"2\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -409,7 +409,7 @@
 						"1"
 					]
 				},
-				"description": "Permite actualizar los campos \"name\", \"docente_id\" y \"state\" de cursos"
+				"description": "Permite actualizar los campos \"nombre\", \"docente_id\" y \"estado\" de cursos"
 			},
 			"response": []
 		},
@@ -443,7 +443,7 @@
 						"1"
 					]
 				},
-				"description": "Permite desactivar un curso por medio de su Id , cambiando su \"state\" a 0"
+				"description": "Permite desactivar un curso por medio de su Id , cambiando su \"estado\" a 0"
 			},
 			"response": []
 		},
@@ -479,7 +479,7 @@
 						"matriculas"
 					]
 				},
-				"description": "Muestra todos los alumnos matriculados existentes que tengan el 'state' en 1 osea que esten activados."
+				"description": "Muestra todos los alumnos matriculados existentes que tengan el 'estado' en 1 osea que esten activados."
 			},
 			"response": []
 		},
@@ -516,7 +516,7 @@
 						"1"
 					]
 				},
-				"description": "Muestra el alumno matriculado con el id ingresado y que tenga el 'state' en 1 osea que este activado."
+				"description": "Muestra el alumno matriculado con el id ingresado y que tenga el 'estado' en 1 osea que este activado."
 			},
 			"response": []
 		},
@@ -584,7 +584,7 @@
 						"1"
 					]
 				},
-				"description": "Permite actualizar los campos \"cursos_id\", \"alumnos_id\", \"asistencia\" y \"state\" de una matricula"
+				"description": "Permite actualizar los campos \"cursos_id\", \"alumnos_id\", \"asistencia\" y \"estado\" de una matricula"
 			},
 			"response": []
 		},
@@ -618,7 +618,7 @@
 						"2"
 					]
 				},
-				"description": "Permite desactivar una matricula por medio de su Id , cambiando su \"state\" a 0"
+				"description": "Permite desactivar una matricula por medio de su Id , cambiando su \"estado\" a 0"
 			},
 			"response": []
 		},
